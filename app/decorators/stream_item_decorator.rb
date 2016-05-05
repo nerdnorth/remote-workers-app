@@ -47,8 +47,6 @@ class StreamItemDecorator < Draper::Decorator
     case streamable_type
     when 'Album'
       h.icon('fa fa-camera bg-orange')
-    when 'Verse'
-      h.icon('fa fa-book bg-green')
     when 'NewsItem'
       h.icon('fa fa-bullhorn bg-red')
     when 'Message'
@@ -67,7 +65,7 @@ class StreamItemDecorator < Draper::Decorator
   def header
     h.content_tag(:h3, class: 'timeline-header') do
       if person
-        who = h.content_tag(:div, class: 'user-header') do      
+        who = h.content_tag(:div, class: 'user-header') do
           h.concat(h.image_tag(h.avatar_path(person), {class: 'avatar tn img-circle'}).html_safe)
           h.concat(h.link_to(person.name, person))
         end
@@ -91,8 +89,6 @@ class StreamItemDecorator < Draper::Decorator
         else
           I18n.t('stream.header.picture', args).html_safe
         end
-      when 'Verse'
-        I18n.t('stream.header.verse', who: who, title: h.link_to(title, path)).html_safe
       when 'NewsItem'
         I18n.t('stream.header.news', who: who, title: h.link_to(title, path)).html_safe
       when 'Message'

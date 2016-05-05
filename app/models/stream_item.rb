@@ -18,7 +18,7 @@ class StreamItem < ActiveRecord::Base
   scope_by_site_id
 
   def can_have_comments?
-    %w(Verse Note Album).include?(streamable_type)
+    %w(Note Album).include?(streamable_type)
   end
 
   def self.shared_with(person)
@@ -46,7 +46,6 @@ class StreamItem < ActiveRecord::Base
     [].tap do |types|
       types << 'Message' # group posts (not personal messages)
       types << 'NewsItem' if Setting.get(:features, :news_page)
-      types << 'Verse'    if Setting.get(:features, :verses)
       types << 'Album'    if Setting.get(:features, :pictures)
       types << 'Note'     if Setting.get(:features, :notes)
       types << 'Person'

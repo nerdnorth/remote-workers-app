@@ -35,7 +35,6 @@ class Person < ActiveRecord::Base
   has_many :messages
   has_many :updates, -> { order(:created_at) }
   has_many :prayer_signups
-  has_and_belongs_to_many :verses
   has_many :log_items
   has_many :stream_items
   has_many :prayer_requests, -> { order(created_at: :desc) }

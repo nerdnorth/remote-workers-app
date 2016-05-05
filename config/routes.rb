@@ -40,7 +40,7 @@ OneBody::Application.routes.draw do
     end
     resource :stream
     resource :photo
-    resources :groups, :pictures, :services, :albums, :verses
+    resources :groups, :pictures, :services, :albums
     resource :privacy
   end
 
@@ -130,10 +130,6 @@ OneBody::Application.routes.draw do
 
   resources :pictures, :prayer_signups, :authentications, :shares,
             :comments, :prayer_requests, :generated_files
-
-  resources :verses do
-    get 'search', on: :collection
-  end
 
   resource :setup, :session, :search, :printable_directory
 

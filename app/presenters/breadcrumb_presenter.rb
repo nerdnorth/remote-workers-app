@@ -21,7 +21,6 @@ class BreadcrumbPresenter
     album_crumb
     message_crumb
     news_crumb
-    verse_crumb
     prayer_request_crumb
     admin_crumb
     document_crumb
@@ -120,12 +119,6 @@ class BreadcrumbPresenter
   def news_crumb
     if @controller == 'news' and @action != 'index'
       crumbs << ['fa fa-bullhorn', t('nav.news'), news_path]
-    end
-  end
-
-  def verse_crumb
-    if @controller == 'verses' and @action != 'index'
-      crumbs << ['fa fa-book', t('nav.verses'), verses_path]
     end
   end
 

@@ -30,13 +30,13 @@ namespace :onebody do
       Setting.set(nil, 'Features', 'Multisite', true)
       puts 'Multiple sites can now be hosted.'
     end
-    
+
     desc "Disable multiple sites"
     task :off => :environment do
       Setting.set(nil, 'Features', 'Multisite', false)
       puts 'Multiple sites feature disabled. Default site will answer for all requests now.'
     end
-    
+
     desc "Display stats about a site"
     task :show => :environment do
       if ENV['NAME'] or ENV['ID']
@@ -49,7 +49,6 @@ namespace :onebody do
           puts " families:    #{site.families.count}"
           puts " people:      #{site.people.count}"
           puts " groups:      #{site.groups.count}"
-          puts " verses:      #{site.verses.count}"
         else
           puts "Site not found."
         end
@@ -57,7 +56,7 @@ namespace :onebody do
         puts "Please specify either NAME or ID."
       end
     end
-    
+
     desc "Add a site"
     task :add => :environment do
       if ENV['NAME'] and ENV['HOST']
@@ -68,7 +67,7 @@ namespace :onebody do
         puts 'Usage: rake onebody:sites:add NAME="Second Site" HOST=site2.example.com'
       end
     end
-    
+
     desc "Delete a site"
     task :delete => :environment do
       if ENV['NAME'] or ENV['ID']
@@ -91,7 +90,7 @@ namespace :onebody do
         puts 'Usage: rake onebody:sites:delete NAME="Second Site"'
       end
     end
-    
+
     desc "Modify a site"
     task :modify => :environment do
       if ENV['NAME'] or ENV['ID']
@@ -110,7 +109,7 @@ namespace :onebody do
         puts 'Usage: rake onebody:sites:modify NAME="Second Site" NEW_NAME="Site 2" HOST=site2.com'
       end
     end
-    
+
     desc "Activate a site"
     task :activate => :environment do
       if ENV['NAME'] or ENV['ID']
@@ -126,7 +125,7 @@ namespace :onebody do
         puts "Please specify either NAME or ID."
       end
     end
-    
+
     desc "Deactivate a site"
     task :deactivate => :environment do
       if ENV['NAME'] or ENV['ID']
@@ -142,7 +141,7 @@ namespace :onebody do
         puts "Please specify either NAME or ID."
       end
     end
-    
+
     def site_args(args={})
       %w(secondary_host max_admins max_people max_groups).each do |arg|
         args[arg] = (ENV[arg.upcase] == '' ? nil : ENV[arg.upcase]) unless ENV[arg.upcase].nil?

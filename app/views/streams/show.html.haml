@@ -15,7 +15,7 @@
           = t('friends.you_have_pending_requests')
         %p
           = link_to t('friends.friends_list_button'), person_friends_path(@logged_in), class: 'btn'
-    - if setting(:features, [:pictures, :verses])
+    - if setting(:features, [:pictures])
       .box.box-success
         .box-header
           %h3.box-title
@@ -33,10 +33,6 @@
               = link_to new_picture_path, class: 'btn bg-orange' do
                 %i.fa.fa-camera
                 = t('stream.share.button.picture')
-            - if setting(:features, :verses)
-              = link_to new_verse_path, class: 'btn bg-green' do
-                %i.fa.fa-book
-                = t('stream.share.button.verse')
             - if setting(:features, :groups)
               .btn-group
                 = link_to groups_path, class: 'btn bg-teal' do

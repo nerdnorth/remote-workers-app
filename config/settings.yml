@@ -62,9 +62,6 @@ Features:
   Sign Up Approval Email:
     format: string
     value:
-  Verses:
-    format: boolean
-    value: true
   Recipes:
     format: boolean
     value: false

@@ -17,10 +17,10 @@
     = icon 'fa fa-lock'
     = t('people.this_profile_is_hidden')
 
-- if !@family and @logged_in.admin?(:edit_profiles)
-  .callout.callout-warning
-    = icon 'fa fa-user'
-    = t('people.no_family_for_this_person')
+/ - if !@family and @logged_in.admin?(:edit_profiles)
+/   .callout.callout-warning
+/     = icon 'fa fa-user'
+/     = t('people.no_family_for_this_person')
 
 - if @person.updates.pending.any? and @logged_in.can_update?(@person)
   .callout.callout-info

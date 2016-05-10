@@ -5,10 +5,6 @@
     = link_to '#sharing', data: { toggle: 'tab' } do
       = icon 'fa fa-share-alt'
       = t('privacies.tabs.sharing')
-  %li
-    = link_to '#children', data: { toggle: 'tab' } do
-      = icon 'fa fa-child'
-      = t('privacies.tabs.children')
 
 .tab-content
 
@@ -22,16 +18,6 @@
           = t('privacies.scroll_notice')
       = form_for @family, url: person_privacy_path(@family.people.first), html: { method: 'put' } do |form|
         %table.table
-          %tr
-            %th.name
-            %th{ colspan: 10 }
-              = t('privacies.visible')
-              %sup 1
-          %tr
-            %td.name
-              = t('privacies.family_privacy')
-            %td{ colspan: 10 }
-              = form.check_box :visible, class: 'visible-checkbox simple'
           %tr.people-header-row
             %th.name
             %th
@@ -96,36 +82,3 @@
           = t('privacies.people_can_still_send_html')
         %p.double-margin-top
           = form.button t('save_changes'), class: 'btn btn-info'
-
-  .tab-pane#children
-    %p= t('privacies.children.intro')
-    - @children.each do |person|
-      .box.box-solid{ class: person.parental_consent ? 'box-success' : 'box-warning' }
-        .box-header
-          .box-icon
-            - if person.parental_consent
-              = icon 'fa fa-unlock'
-            - else
-              = icon 'fa fa-lock'
-          %h3.box-title
-            = person.name
-        .box-body
-          = form_for @family, url: person_privacy_path(person, anchor: 'tab-children'), html: {method: 'put', style: 'border:none;padding:0;'} do |form|
-            - if person.parental_consent
-              %p= t('privacies.child_profile_has_parental_consent', name: person.parental_consent)
-            - elsif @logged_in.family == @family
-              %p= t('privacies.child_under_age_you_have_not_consent', years: Setting.get(:system, :adult_age))
-              %p
-                = t('privacies.to_show_on_this_site', name: h(person.name))
-              %ol.list
-                %li= t('privacies.read_safeguarding_children_html', url: help_path('safeguarding_children'))
-                %li= t('privacies.read_privacy_policy_html', url: help_path('privacy_policy'))
-                %li= t('privacies.read_statement_below')
-                %li= t('privacies.click_the_agree')
-              %p
-                = check_box_tag 'agree', I18n.t('privacies.i_agree') + ".", false, class: 'checkbox'
-                = t('privacies.as_a_parent_agree_html', { name: h(person.name), url: help_path('privacy_policy') } )
-              %p
-                = button_tag I18n.t('privacies.i_agree'), name: 'agree_commit', class: 'btn btn-success'
-            - else
-              %p= t('privacies.child_under_age_you_have_not_consent', years: Setting.get(:system, :adult_age))

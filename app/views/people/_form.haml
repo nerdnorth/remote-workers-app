@@ -49,10 +49,6 @@
       = photo_upload_for @person do
         %p= avatar_tag @person, size: :large
 
-      %h3= t('people.edit.family_photo')
-      = photo_upload_for @family do
-        %p= family_avatar_tag @family, size: :large
-
 - content_for(:js) do
   :javascript
     $('#person_birthday').on('keyup changeDate', function(){

@@ -97,11 +97,11 @@
                     = link_to edit_person_privacy_path(@person) do
                       = icon 'fa fa-lock'
                       = t('nav.profile_sub.privacy')
-                  - if @logged_in.admin?(:edit_profiles)
-                    %li
-                      = link_to person_relationships_path(@person) do
-                        = icon 'fa fa-link'
-                        = t('nav.profile_sub.relationships')
+                  / - if @logged_in.admin?(:edit_profiles)
+                  /   %li
+                  /     = link_to person_relationships_path(@person) do
+                  /       = icon 'fa fa-link'
+                  /       = t('nav.profile_sub.relationships')
             - if setting(:features, :groups)
               %li{ class: tab_selected?(:groups) ? 'active' : '' }
                 = link_to groups_path do

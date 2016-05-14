@@ -5,12 +5,6 @@
 .form-group
   = form.check_box :staff
   = form.label :staff,  t('search.staff'),  class: 'inline'
-.form-group
-  = form.check_box :elder
-  = form.label :elder,  t('search.elder'),  class: 'inline'
-.form-group
-  = form.check_box :deacon
-  = form.label :deacon, t('search.deacon'), class: 'inline'
 - if setting(:features, :custom_person_type)
   .form-group
     = form.label :custom_type

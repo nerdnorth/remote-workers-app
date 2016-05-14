@@ -46,24 +46,6 @@
               = link_to new_group_message_path(@group), class: 'small-box-footer' do
                 = t('groups.box.messages.new_link')
                 = icon 'fa fa-plus-circle'
-      - if @group.prayer?
-        = group_content_column do
-          .small-box.bg-purple
-            - if @member_of
-              = link_to group_prayer_requests_path(@group) do
-                .inner
-                  %h3= @group.prayer_requests.count
-                  %p= t('groups.box.prayer_requests.text', count: @group.prayer_requests.count)
-            - else
-              .inner
-                %h3= @group.prayer_requests.count
-                %p= t('groups.box.prayer_requests.text', count: @group.prayer_requests.count)
-            %div{ class: @member_of ? 'icon' : 'icon-disabled' }
-              = icon 'fa fa-heart-o'
-            - if @group.can_add_prayer_request?(@logged_in)
-              = link_to new_group_prayer_request_path(@group), class: 'small-box-footer' do
-                = t('groups.box.prayer_requests.new_link')
-                = icon 'fa fa-plus-circle'
       - if @group.pictures?
         = group_content_column do
           .small-box.bg-orange

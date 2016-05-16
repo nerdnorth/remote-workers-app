@@ -6,6 +6,7 @@ gem 'rails'
 gem 'mysql2'
 #gem 'pg'
 
+gem 'chargebee'
 gem 'activerecord-session_store'
 gem 'acts_as_list'
 gem 'acts_as_taggable_on_steroids', github: 'seven1m/acts_as_taggable_on_steroids'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403231924) do
+ActiveRecord::Schema.define(version: 20160516043840) do
 
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at"
@@ -79,6 +79,19 @@ ActiveRecord::Schema.define(version: 20160403231924) do
   add_index "attendance_records", ["group_id"], name: "index_group_id_on_attendance_records", using: :btree
   add_index "attendance_records", ["person_id"], name: "index_person_id_on_attendance_records", using: :btree
   add_index "attendance_records", ["site_id"], name: "index_site_id_on_attendance_records", using: :btree
+
+  create_table "chargebee_subscriptions", force: :cascade do |t|
+    t.string   "event_id",        limit: 255
+    t.string   "invoice_id",      limit: 255
+    t.string   "subscription_id", limit: 255
+    t.string   "customer_id",     limit: 255
+    t.string   "customer_email",  limit: 255
+    t.string   "plan_id",         limit: 255
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "checkin_folders", force: :cascade do |t|
     t.integer "site_id",         limit: 4

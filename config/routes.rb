@@ -224,4 +224,5 @@ OneBody::Application.routes.draw do
   get '/auth/facebook/callback'  => 'sessions#create_from_external_provider'
   post '/auth/facebook/callback' => 'sessions#create_from_external_provider'
   get '/auth/:provider/setup'    => 'sessions#setup_omniauth'
+  post '/chargebee/webhook'      => 'chargebee_webhook#handle_webhook'
 end

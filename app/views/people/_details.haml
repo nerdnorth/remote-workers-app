@@ -71,3 +71,14 @@
         = t('people.show.details.about')
       %td
         = preserve_breaks @person.about
+  -if @person.subscription.present?
+    %tr
+      %td
+        ='Subscription Start Date'
+      %td
+        =@person.subscription.start_date.strftime('%B %C, %Y')
+    %tr
+      %td
+        ='Subscription Renewal Date'
+      %td
+        =@person.subscription.end_date.strftime('%B %C, %Y')

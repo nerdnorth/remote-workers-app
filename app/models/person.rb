@@ -277,4 +277,9 @@ class Person < ActiveRecord::Base
       .order(:custom_type)
       .pluck('distinct custom_type')
   end
+
+  def subscription
+    ChargebeeSubscription.where(customer_email: email).order('start_date desc').first
+  end
+
 end

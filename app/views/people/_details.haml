@@ -71,6 +71,12 @@
         = t('people.show.details.about')
       %td
         = preserve_breaks @person.about
+  -if @person.job_opportunities.present?
+    %tr
+      %td
+        = 'Looking For Jobs In'
+      %td
+        = @person.job_opportunities.titlecase
   -if @person.subscription.present?
     %tr
       %td

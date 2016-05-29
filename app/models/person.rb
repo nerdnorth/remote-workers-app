@@ -17,7 +17,7 @@ class Person < ActiveRecord::Base
   include Concerns::Person::Relationships
   include Concerns::Person::Memberships
   include Concerns::DateWriter
-
+  acts_as_taggable
   acts_as_list scope: :family
 
   def self.logged_in

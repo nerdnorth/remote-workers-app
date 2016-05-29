@@ -57,7 +57,8 @@ class Updater
       status:               :admin,
 
       # remoteworkers stuff
-      job_opportunities:    :immediate
+      job_opportunities:    :immediate,
+      tag_list:             :immediate
     },
     family: {
       name:                 :approve,

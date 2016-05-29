@@ -1,22 +1,138 @@
 .form-group
   %span.help-block= 'What kind of job opportunities are you looking for? '
-  = form.radio_button :job_opportunities, 'software-development'
+  = form.radio_button :job_opportunities, 'software-development', data: {behavior: "job-opportunities-click"}
   = form.label :job_opportunities, 'Software development',  class: 'inline', value: 'software-development'
 .form-group
-  = form.radio_button :job_opportunities, 'customer-support'
+  = form.radio_button :job_opportunities, 'customer-support', data: {behavior: "job-opportunities-click"}
   = form.label :job_opportunities, 'Customer support',  class: 'inline', value: 'customer-support'
 .form-group
-  = form.radio_button :job_opportunities, 'design'
+  = form.radio_button :job_opportunities, 'design', data: {behavior: "job-opportunities-click"}
   = form.label :job_opportunities, 'Design',  class: 'inline', value: 'design'
 
-/ .form-group
-/   %span.help-block= 'Softawre Developers: what language do you know?'
-/   = form.check_box :member
-/   = form.label :member, t('search.member'), class: 'inline'
-/ .form-group
-/   = form.check_box :staff
-/   = form.label :staff,  t('search.staff'),  class: 'inline'
-/ - if setting(:features, :custom_person_type)
-/   .form-group
-/     = form.label :custom_type
-/     = form.select :custom_type, custom_types, { include_blank: true }, class: 'form-control can-create', data: { 'custom-select-prompt' => t('people.edit.custom_type.create_prompt') }
+.software-development-tags
+  .form-group
+    %span.help-block= 'Software Developers: what language do you know?'
+    = form.check_box :tag_list, {multiple: true}, 'SQL'
+    = form.label :tag_list, 'SQL', class: 'inline', value: 'SQL'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Java'
+    = form.label :tag_list, 'Java', class: 'inline', value: 'Java'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'JavaScript'
+    = form.label :tag_list, 'JavaScript', class: 'inline', value: 'JavaScript'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Csharp'
+    = form.label :tag_list, 'C#', class: 'inline', value: 'Csharp'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Python'
+    = form.label :tag_list, 'Python', class: 'inline', value: 'Python'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Cplusplus'
+    = form.label :tag_list, 'C++', class: 'inline', value: 'Cplusplus'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'PHP'
+    = form.label :tag_list, 'PHP', class: 'inline', value: 'PHP'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Objective C'
+    = form.label :tag_list, 'Objective C', class: 'inline', value: 'Objective C'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Ruby'
+    = form.label :tag_list, 'Ruby', class: 'inline', value: 'Ruby'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Swift'
+    = form.label :tag_list, 'Swift', class: 'inline', value: 'Swift'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Go'
+    = form.label :tag_list, 'Go', class: 'inline', value: 'Go'
+
+
+.customer-support-tags
+  / .form-group
+  /   %span.help-block= 'Software Developers: what language do you know?'
+  /   = form.check_box :tag_list, {multiple: true}, 'SQL'
+  /   = form.label :tag_list, 'SQL', class: 'inline', value: 'SQL'
+  / .form-group
+  /   = form.check_box :tag_list, {multiple: true}, 'Java'
+  /   = form.label :tag_list, 'Java', class: 'inline', value: 'Java'
+  / .form-group
+  /   = form.check_box :tag_list, {multiple: true}, 'JavaScript'
+  /   = form.label :tag_list, 'JavaScript', class: 'inline', value: 'JavaScript'
+
+
+.design-tags
+  .form-group
+    %span.help-block= 'Designers: what specialties do you have?'
+    = form.check_box :tag_list, {multiple: true}, 'Graphic design'
+    = form.label :tag_list, 'Graphic design', class: 'inline', value: 'Graphic design'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'UX design'
+    = form.label :tag_list, 'UX design', class: 'inline', value: 'UX design'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'UI design'
+    = form.label :tag_list, 'UI design', class: 'inline', value: 'UI design'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Interaction design'
+    = form.label :tag_list, 'Interaction design', class: 'inline', value: 'Interaction design'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Information architecture'
+    = form.label :tag_list, 'Information architecture', class: 'inline', value: 'Information architecture'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Motion graphics'
+    = form.label :tag_list, 'Motion graphics', class: 'inline', value: 'Motion graphics'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Animator'
+    = form.label :tag_list, 'Animator', class: 'inline', value: 'Animator'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Illustrator'
+    = form.label :tag_list, 'Illustrator', class: 'inline', value: 'Illustrator'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Art director'
+    = form.label :tag_list, 'Art director', class: 'inline', value: 'Art director'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Branding & Identity'
+    = form.label :tag_list, 'Branding & Identity', class: 'inline', value: 'Branding & Identity'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Print design'
+    = form.label :tag_list, 'Print design', class: 'inline', value: 'Print design'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'HTML email'
+    = form.label :tag_list, 'HTML email', class: 'inline', value: 'HTML email'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'HTML'
+    = form.label :tag_list, 'HTML', class: 'inline', value: 'HTML'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'CSS'
+    = form.label :tag_list, 'CSS', class: 'inline', value: 'CSS'
+
+- content_for :js do
+  :javascript
+
+    $(document).ready(function() {
+      var softwareDevelopment = $('.software-development-tags');
+      var customerSupport = $('.customer-support-tags');
+      var design = $('.design-tags');
+
+      function showFor(skill) {
+        if(skill == "software-development") {
+          softwareDevelopment.show();
+          customerSupport.hide();
+          design.hide()
+        }
+        else if(skill == 'customer-support') {
+          softwareDevelopment.hide();
+          customerSupport.show();
+          design.hide()
+        }
+        else if(skill == 'design') {
+          softwareDevelopment.hide();
+          customerSupport.hide();
+          design.show()
+        }
+      }
+
+      $('input[type="radio"][data-behavior="job-opportunities-click"]').click(function(evt) {
+        showFor($(this).val())
+      });
+
+      showFor('#{@person.job_opportunities}');
+    });

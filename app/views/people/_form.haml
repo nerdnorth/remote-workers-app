@@ -16,6 +16,8 @@
           = link_to t('people.edit.basics'), '#basics', data: { toggle: 'tab' }
         %li
           = link_to t('people.edit.about'), '#about', data: { toggle: 'tab' }
+        %li
+          = link_to 'Career', '#career', data: { toggle: 'tab' }
         - if setting(:features, :business_directory)
           %li
             = link_to t('people.edit.business'), '#business', data: { toggle: 'tab' }
@@ -31,6 +33,9 @@
           .form-group= submit_or_save_button
         .tab-pane#about
           = render partial: 'form_about', object: form, as: :form
+          .form-group= submit_or_save_button
+        .tab-pane#career
+          = render partial: 'form_career', object: form, as: :form
           .form-group= submit_or_save_button
         - if setting(:features, :business_directory)
           .tab-pane#business

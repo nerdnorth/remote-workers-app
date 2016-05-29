@@ -128,6 +128,8 @@ class Person < ActiveRecord::Base
   sharable_attributes :home_phone, :mobile_phone, :work_phone, :fax,
                       :email, :birthday, :address, :anniversary, :activity
 
+  sharable_attributes :job_opportunities
+
   self.skip_time_zone_conversion_for_attributes = [:birthday, :anniversary]
   self.digits_only_for_attributes = [:mobile_phone, :work_phone, :fax, :business_phone]
 

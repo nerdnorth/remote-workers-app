@@ -54,7 +54,10 @@ class Updater
       legacy_family_id:     :admin,
       relationships:        :admin,
       sequence:             :admin,
-      status:               :admin
+      status:               :admin,
+
+      # remoteworkers stuff
+      job_opportunities:    :immediate
     },
     family: {
       name:                 :approve,

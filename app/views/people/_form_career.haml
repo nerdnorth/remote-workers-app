@@ -98,15 +98,6 @@
   .form-group
     = form.check_box :tag_list, {multiple: true}, 'Print design'
     = form.label :tag_list, 'Print design', class: 'inline', value: 'Print design'
-  .form-group
-    = form.check_box :tag_list, {multiple: true}, 'HTML email'
-    = form.label :tag_list, 'HTML email', class: 'inline', value: 'HTML email'
-  .form-group
-    = form.check_box :tag_list, {multiple: true}, 'HTML'
-    = form.label :tag_list, 'HTML', class: 'inline', value: 'HTML'
-  .form-group
-    = form.check_box :tag_list, {multiple: true}, 'CSS'
-    = form.label :tag_list, 'CSS', class: 'inline', value: 'CSS'
 
 - content_for :js do
   :javascript

@@ -26,7 +26,6 @@
             %th
               = t('privacies.activity')
               %sup 2
-            %th= t('privacies.anniversary')
             %th= t('privacies.address')
             %th= t('privacies.home_phone')
             %th= t('privacies.mobile_phone')
@@ -45,7 +44,6 @@
                     = person.first_name
                   %td= person_form.check_box :visible, class: 'visible-checkbox simple'
                   %td= person_form.check_box :share_activity, class: 'simple'
-                  %td= person_form.check_box :share_anniversary,  class: "share-checkbox simple", 'data-share-type' => 'share-anniversary',  'data-person-id' => person.id
                   %td= person_form.check_box :share_address,      class: "share-checkbox simple", 'data-share-type' => 'share-address',      'data-person-id' => person.id
                   %td= person_form.check_box :share_home_phone,   class: "share-checkbox simple", 'data-share-type' => 'share-home-phone',   'data-person-id' => person.id
                   %td= person_form.check_box :share_mobile_phone, class: "share-checkbox simple", 'data-share-type' => 'share-mobile-phone', 'data-person-id' => person.id
@@ -63,7 +61,6 @@
               = fields_for "memberships[#{membership.id}]", membership do |membership_form|
                 = content_tag :tr, style: 'display:none;', class: "membership-row membership-for-#{person.id}" do
                   %td.group-name{ colspan: 3 }= membership.group.name
-                  %td= membership_form.check_box :share_anniversary,  class: 'share-anniversary simple'
                   %td= membership_form.check_box :share_address,      class: 'share-address simple'
                   %td= membership_form.check_box :share_home_phone,   class: 'share-home-phone simple'
                   %td= membership_form.check_box :share_mobile_phone, class: 'share-mobile-phone simple'

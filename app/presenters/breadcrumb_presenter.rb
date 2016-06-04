@@ -45,7 +45,7 @@ class BreadcrumbPresenter
 
   def family_crumb
     if person and person.family and @route == 'people#show'
-      crumbs << ['fa fa-users', person.family.try(:name), family_path(person.family)]
+      crumbs << ['fa fa-user', person.family.try(:name), person_path(person)]
     end
   end
 

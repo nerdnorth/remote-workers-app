@@ -24,9 +24,6 @@
             = select_tag 'birthday[month]', options_for_select(MONTHS_FOR_SELECT, @search.birthday(:month)), include_blank: true, class: 'form-control inline'
             = select_tag 'birthday[day]', options_for_select(1..31, @search.birthday(:day)), include_blank: true, class: 'form-control inline'
           .form-group
-            = label_tag 'gender', t('search.form.gender')
-            = select_tag 'gender', options_for_select(t('search.form.genders').invert, @search.gender), include_blank: true, class: 'form-control'
-          .form-group
             = label_tag 'address_city', t('search.form.city')
             = text_field_tag 'address[city]', @search.address(:city), class: 'form-control'
           .form-group

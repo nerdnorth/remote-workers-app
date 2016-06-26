@@ -63,9 +63,46 @@
     = form.check_box :tag_list, {multiple: true}, 'Marketing'
     = form.label :tag_list, 'Marketing', class: 'inline', value: 'Marketing'
 
-.form-grou.design-tags
+.form-group.design-tags
   .form-group
     %span.help-block= 'Designers: what specialties do you have?'
+    = form.check_box :tag_list, {multiple: true}, 'HTML'
+    = form.label :tag_list, 'HTML', class: 'inline', value: 'HTML'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'CSS'
+    = form.label :tag_list, 'CSS', class: 'inline', value: 'CSS'
+  .form-group
+    %label{class: 'inline', value: 'JavaScript'}
+      = form.check_box :tag_list, {multiple: true}, 'JavaScript'
+      JavaScript
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'jQuery'
+    = form.label :tag_list, 'jQuery', class: 'inline', value: 'jQuery'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Git'
+    = form.label :tag_list, 'Git', class: 'inline', value: 'Git'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Angular.js'
+    = form.label :tag_list, 'Angular.js', class: 'inline', value: 'Angular.js'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Ember.js'
+    = form.label :tag_list, 'Ember.js', class: 'inline', value: 'Ember.js'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'React.js'
+    = form.label :tag_list, 'React.js', class: 'inline', value: 'React.js'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Backbone.js'
+    = form.label :tag_list, 'Backbone.js', class: 'inline', value: 'Backbone.js'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'SASS'
+    = form.label :tag_list, 'SASS', class: 'inline', value: 'SASS'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'SCSS'
+    = form.label :tag_list, 'SCSS', class: 'inline', value: 'SCSS'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Less'
+    = form.label :tag_list, 'Less', class: 'inline', value: 'Less'
+  .form-group
     = form.check_box :tag_list, {multiple: true}, 'Graphic design'
     = form.label :tag_list, 'Graphic design', class: 'inline', value: 'Graphic design'
   .form-group

@@ -99,6 +99,7 @@ class PeopleController < ApplicationController
     @person ||= Person.find(params[:id])
     render(text: t('people.edit.no_family_error'), layout: true) && return unless @person.family
     if @logged_in.can_update?(@person)
+      fix_stupid_tags
       @family = @person.family
       @business_categories = Person.business_categories
       @custom_types = Person.custom_types
@@ -120,6 +121,7 @@ class PeopleController < ApplicationController
       flash[:info] = t('people.move.success_message', person: @person.name, family: @family.name)
       redirect_to @family
     elsif @logged_in.can_update?(@person)
+      fix_stupid_tags
       @updater = Updater.new(params)
       if @updater.save!
         respond_to do |format|
@@ -197,5 +199,11 @@ class PeopleController < ApplicationController
 
   def family_params
     Updater.new(params).params[:family] || {}
+  end
+
+  def fix_stupid_tags
+   if params['person'].present? && params['person']['tag_list'].present?
+      params['person']['tag_list'] = params['person']['tag_list'].select { |t| t != '0'}
+    end
   end
 end

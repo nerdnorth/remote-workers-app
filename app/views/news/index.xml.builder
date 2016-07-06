@@ -12,7 +12,7 @@ xml.feed(xmlns: "http://www.w3.org/2005/Atom") do |feed|
       entry.content   news_item.body, type: 'html'
       entry.published news_item.created_at.xmlschema
       entry.updated   news_item.updated_at.xmlschema
-      entry.link      url_for(news_item), href: url_for(news_item)
+      entry.link      'http://app.remoteworkers.club' + url_for(news_item), href: 'http://app.remoteworkers.club' + url_for(news_item)
     end
   end
 end

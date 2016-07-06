@@ -15,7 +15,8 @@ class Search
                 :select_person,
                 :select_family,
                 :group_category,
-                :group_select_option
+                :group_select_option,
+                :skill
 
   def initialize(params = {})
     source = params.delete(:source) || :person
@@ -25,12 +26,16 @@ class Search
     if source == :person
       if group_category.present?
         @scope = Person.eager_load(:family, :groups) # for left outer join for groups
+
       else
         @scope = Person.joins(:family)
       end
     elsif source == :family
       @scope = Family.includes(:people)
     end
+
+    @scope = @scope.joins('left join taggings on taggings.taggable_id = people.id and taggings.taggable_type="Person"')
+    .joins('left join tags on taggings.tag_id = tags.id').distinct if skill.present?
   end
 
   def results
@@ -89,6 +94,7 @@ class Search
     address!
     phone!
     email!
+    skill!
     type!
     family_barcode_id!
     @executed = true
@@ -163,6 +169,10 @@ class Search
     self.birthday ||= {}
     where!('extract( month from people.birthday) = ?', birthday[:month]) if birthday[:month].present?
     where!('extract( day from people.birthday)   = ?', birthday[:day])   if birthday[:day].present?
+  end
+
+  def skill!
+    where!("tags.name #{like} :skill", skill: like_match(skill)).distinct if skill.present?
   end
 
   def anniversary!

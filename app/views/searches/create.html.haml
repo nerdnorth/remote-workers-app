@@ -19,10 +19,8 @@
 
         .advanced-controls{style: 'display:none'}
           .form-group
-            = label_tag 'birthday_month', t('search.form.birthday')
-            %br
-            = select_tag 'birthday[month]', options_for_select(MONTHS_FOR_SELECT, @search.birthday(:month)), include_blank: true, class: 'form-control inline'
-            = select_tag 'birthday[day]', options_for_select(1..31, @search.birthday(:day)), include_blank: true, class: 'form-control inline'
+            = label_tag 'skill', 'Skill'
+            = text_field_tag 'skill', @search.skill, class: 'form-control'
           .form-group
             = label_tag 'address_city', t('search.form.city')
             = text_field_tag 'address[city]', @search.address(:city), class: 'form-control'

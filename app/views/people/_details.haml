@@ -73,10 +73,16 @@
         = preserve_breaks @person.about
   -if @person.job_opportunities.present?
     %tr
-      %td
+      %td{style: "min-width: 150px"}
         = 'Looking For Jobs In'
       %td
         = @person.job_opportunities.titlecase
+  -if @person.tag_list.count > 0
+    %tr
+      %td
+        = 'Skills'
+      %td
+        = @person.tag_list.join(', ')
   -if @person.subscription.present?
     %tr
       %td

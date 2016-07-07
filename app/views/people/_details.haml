@@ -82,7 +82,9 @@
       %td
         = 'Skills'
       %td
-        = @person.tag_list.join(', ')
+        -@person.tag_list[0..10].each_with_index do |tag, index|
+          %a{href: '/search?utf8=%E2%9C%93&advanced=true&skill=' + CGI::escape(tag)}
+            %span= (tag + (index < 10 && index < @person.tag_list.count - 1   ? ', ' : ''))
   -if @person.subscription.present?
     %tr
       %td

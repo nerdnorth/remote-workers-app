@@ -128,7 +128,7 @@ class Person < ActiveRecord::Base
   sharable_attributes :home_phone, :mobile_phone, :work_phone, :fax,
                       :email, :birthday, :address, :anniversary, :activity
 
-  sharable_attributes :job_opportunities
+  sharable_attributes :job_opportunities_design, :job_opportunities_development, :job_opportunities_other
 
   self.skip_time_zone_conversion_for_attributes = [:birthday, :anniversary]
   self.digits_only_for_attributes = [:mobile_phone, :work_phone, :fax, :business_phone]
@@ -284,4 +284,12 @@ class Person < ActiveRecord::Base
     ChargebeeSubscription.where(customer_email: email).order('start_date desc').first
   end
 
+  def job_opportunities_desc
+    choices = []
+    choices << 'Software Development' if job_opportunities_development
+    choices << 'Design' if job_opportunities_design
+    choices << 'Other Roles' if job_opportunities_other
+    return nil if choices.empty?
+    return choices.join(', ')
+  end
 end

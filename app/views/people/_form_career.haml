@@ -1,13 +1,13 @@
 .form-group
   %span.help-block= 'What kind of job opportunities are you looking for? '
-  = form.radio_button :job_opportunities, 'software-development', data: {behavior: "job-opportunities-click"}
-  = form.label :job_opportunities, 'Software development',  class: 'inline', value: 'software-development'
+  = form.check_box :job_opportunities_development, data: {behavior: "job-opportunities-click"}
+  = form.label :job_opportunities_development, 'Software development',  class: 'inline'
 .form-group
-  = form.radio_button :job_opportunities, 'design', data: {behavior: "job-opportunities-click"}
-  = form.label :job_opportunities, 'Design',  class: 'inline', value: 'design'
+  = form.check_box :job_opportunities_design, data: {behavior: "job-opportunities-click"}
+  = form.label :job_opportunities_design, 'Design',  class: 'inline'
 .form-group
-  = form.radio_button :job_opportunities, 'other-roles', data: {behavior: "job-opportunities-click"}
-  = form.label :job_opportunities, 'Other roles',  class: 'inline', value: 'other-roles'
+  = form.check_box :job_opportunities_other, data: {behavior: "job-opportunities-click"}
+  = form.label :job_opportunities_other, 'Other roles',  class: 'inline'
 
 .software-development-tags
   .form-group
@@ -47,23 +47,6 @@
     = form.check_box :tag_list, {multiple: true}, 'Go'
     = form.label :tag_list, 'Go', class: 'inline', value: 'Go'
 
-.other-tags
-  .form-group
-    %span.help-block= 'Other roles you''re interested in'
-    = form.check_box :tag_list, {multiple: true}, 'Customer Support'
-    = form.label :tag_list, 'Customer Support', class: 'inline', value: 'Customer Support'
-  .form-group
-    = form.check_box :tag_list, {multiple: true}, 'Project management'
-    = form.label :tag_list, 'Project management', class: 'inline', value: 'Project management'
-  .form-group
-    = form.check_box :tag_list, {multiple: true}, 'Copywriting'
-    = form.label :tag_list, 'Copywriting', class: 'inline', value: 'Copywriting'
-  .form-group
-    = form.check_box :tag_list, {multiple: true}, 'Product management'
-    = form.label :tag_list, 'Product management', class: 'inline', value: 'Product management'
-  .form-group
-    = form.check_box :tag_list, {multiple: true}, 'Marketing'
-    = form.label :tag_list, 'Marketing', class: 'inline', value: 'Marketing'
 
 .form-group.design-tags
   .form-group
@@ -138,40 +121,46 @@
     = form.check_box :tag_list, {multiple: true}, 'Print design'
     = form.label :tag_list, 'Print design', class: 'inline', value: 'Print design'
 
+.other-tags
+  .form-group
+    %span.help-block= 'Other roles you''re interested in'
+    = form.check_box :tag_list, {multiple: true}, 'Customer Support'
+    = form.label :tag_list, 'Customer Support', class: 'inline', value: 'Customer Support'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Project management'
+    = form.label :tag_list, 'Project management', class: 'inline', value: 'Project management'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Copywriting'
+    = form.label :tag_list, 'Copywriting', class: 'inline', value: 'Copywriting'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Product management'
+    = form.label :tag_list, 'Product management', class: 'inline', value: 'Product management'
+  .form-group
+    = form.check_box :tag_list, {multiple: true}, 'Marketing'
+    = form.label :tag_list, 'Marketing', class: 'inline', value: 'Marketing'
+
+
 - content_for :js do
   :javascript
 
     $(document).ready(function() {
-      var softwareDevelopment = $('.software-development-tags');
-      var other = $('.other-tags');
-      var design = $('.design-tags');
+      var softwareDevelopmentSection = $('.software-development-tags');
+      var otherSection = $('.other-tags');
+      var designSection = $('.design-tags');
 
-      function showFor(skill) {
-        if(skill == "software-development") {
-          softwareDevelopment.show();
-          other.hide();
-          design.hide()
-        }
-        else if(skill == 'other-roles') {
-          softwareDevelopment.hide();
-          other.show();
-          design.hide()
-        }
-        else if(skill == 'design') {
-          softwareDevelopment.hide();
-          other.hide();
-          design.show()
-        }
-        else {
-          softwareDevelopment.hide();
-          other.hide();
-          design.hide();
-        }
+      var softwareDevelopmentCheckbox = $('#person_job_opportunities_development');
+      var otherCheckbox = $('#person_job_opportunities_other');
+      var designCheckbox = $('#person_job_opportunities_design');
+
+      function update(skill) {
+        softwareDevelopmentCheckbox.is(':checked') ? softwareDevelopmentSection.show() : softwareDevelopmentSection.hide();
+        otherCheckbox.is(':checked') ? otherSection.show() : otherSection.hide();
+        designCheckbox.is(':checked') ? designSection.show() : designSection.hide();
       }
 
-      $('input[type="radio"][data-behavior="job-opportunities-click"]').click(function(evt) {
-        showFor($(this).val())
+      $('input[type="checkbox"][data-behavior="job-opportunities-click"]').click(function(evt) {
+        update();
       });
 
-      showFor('#{@person.job_opportunities}');
+      update();
     });

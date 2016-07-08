@@ -71,12 +71,12 @@
         = t('people.show.details.about')
       %td
         = preserve_breaks @person.about
-  -if @person.job_opportunities.present?
+  -if @person.job_opportunities_desc
     %tr
       %td{style: "min-width: 150px"}
         = 'Looking For Jobs In'
       %td
-        = @person.job_opportunities.titlecase
+        = @person.job_opportunities_desc
   -if @person.tag_list.count > 0
     %tr
       %td

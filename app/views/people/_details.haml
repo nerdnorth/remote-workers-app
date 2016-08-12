@@ -3,6 +3,10 @@
     %tr
       %td= t('people.show.details.website')
       %td= link_to simple_url(@person.website), safe_url(@person.website)
+  = show_attribute(:linkedin) do
+    %tr
+      %td='LinkedIn URL'
+      %td= link_to simple_url(@person.linkedin), safe_url(@person.linkedin)
   = show_attribute(:email) do
     %tr
       %td

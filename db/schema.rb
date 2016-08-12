@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708010917) do
+ActiveRecord::Schema.define(version: 20160812043303) do
 
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at"
@@ -523,6 +523,7 @@ ActiveRecord::Schema.define(version: 20160708010917) do
     t.boolean  "job_opportunities_design"
     t.boolean  "job_opportunities_development"
     t.boolean  "job_opportunities_other"
+    t.string   "linkedin",                      limit: 1024
   end
 
   add_index "people", ["admin_id"], name: "index_admin_id_on_people", using: :btree

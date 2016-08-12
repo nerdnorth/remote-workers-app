@@ -104,6 +104,7 @@ en:
         custom_type: "Custom Role"
         email: "Email"
         facebook_url: "Facebook URL"
+        linkedin: "LinkedIn URL"
         fax: "Fax"
         first_name: "First Name"
         gender: "Gender"

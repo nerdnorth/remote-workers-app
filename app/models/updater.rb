@@ -60,7 +60,8 @@ class Updater
       job_opportunities_design:       :immediate,
       job_opportunities_development:  :immediate,
       job_opportunities_other:        :immediate,
-      tag_list:                       :immediate
+      tag_list:                       :immediate,
+      linkedin:             :immediate,
     },
     family: {
       name:                 :approve,

@@ -1,43 +1,4 @@
-![screnshots](https://farm8.staticflickr.com/7508/15498980049_3527e0817e_b.jpg)
 
-# OneBody
-
-[![Install on DigitalOcean](https://img.shields.io/badge/install-digital_ocean-479de4.svg)](http://installer.71m.us/install?url=https://github.com/churchio/onebody)
-[![Install on Amazon EC2](https://img.shields.io/badge/install-amazon_ec2-f78527.svg)](https://github.com/churchio/onebody/wiki/Amazon-AMI)
-[![Install on a hypervisor](https://img.shields.io/badge/install-vm-002f6b.svg)](https://github.com/churchio/onebody/wiki/Virtual-Appliance)
-[![Install elsewhere](https://img.shields.io/badge/install-other-999999.svg)](https://github.com/churchio/onebody/wiki/Installation)
-[![Chat with us](https://img.shields.io/badge/chat-slack-e01563.svg)](https://slackin-churchio.herokuapp.com/)
-
-OneBody is open-source, web-based social networking, email list, online directory, and lightweight document management software for churches.
-
-This software has been in production use at churches for over nine years. Every feature is built by actual church members to meet the need of their own church.
-
-Visit our website at [church.io](http://church.io) or browse through our [screenshots on Flickr](https://www.flickr.com/photos/timothymorgan/sets/72157644451251789) to see more.
-
-## Contributing to the Project
-
-[![Build](http://img.shields.io/travis/churchio/onebody.svg)](https://travis-ci.org/churchio/onebody)
-[![Coverage](https://coveralls.io/repos/churchio/onebody/badge.svg)](https://coveralls.io/r/churchio/onebody)
-[![Code Climate](https://codeclimate.com/github/churchio/onebody/badges/gpa.svg)](https://codeclimate.com/github/churchio/onebody)
-[![Security Status](https://hakiri.io/github/churchio/onebody/master.svg)](https://hakiri.io/github/churchio/onebody/master)
-
-[![Stories Ready](https://badge.waffle.io/churchio/onebody.svg?label=ready&title=stories+ready)](http://waffle.io/churchio/onebody)
-[![Stories in Progress](https://badge.waffle.io/churchio/onebody.svg?label=in+progress&title=stories+in+progress)](http://waffle.io/churchio/onebody)
-
-We ❤️ contributors! Just check out [all these people](https://github.com/orgs/churchio/people) who have helped make OneBody awesome!
-
-To help fix a bug, first make sure it has a logged [issue](https://github.com/churchio/onebody/issues) (if not, create one), then:
-
-1. Fork this repo on GitHub and clone your fork to your computer.
-2. Set up the software on your computer by following the directions in the next section.
-3. Fix the bug!
-4. Run the test suite (see the "Tests" section lower in this file) to make sure you didn't break something. (This is kind of optional, since Travis CI will run the test suite when you create your Pull Request anyway.)
-4. Submit a Pull Request to get your bug fix merged!
-
-If you'd like to add an awesome new feature, please join our [Slack chat](https://slackin-churchio.herokuapp.com/) to talk about what you want to do. We'd like to give you some guidance on approach, coding style, tests, etc.
-
-[FAQs for Contributors](https://github.com/churchio/onebody/wiki/FAQs-for-Contributors)
-[Code of Conduct](https://github.com/churchio/onebody/blob/master/CONDUCT.md)
 
 ### Development Setup Using Vagrant
 
